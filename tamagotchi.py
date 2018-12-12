@@ -13,12 +13,12 @@ while True:
         sleep(5000)    
     elif button_b.is_pressed():
         count = count + 1
-        display.show(‘ow’)
+        display.scroll("ow")
     elif count > 10:
-        display.show(‘DEAD’)
+        display.scroll("DEAD")
     elif fed > 5:
-        display.show(‘bluuh’)
+        display.scroll("bluuh")
         fed = 0
     elif accelerometer.was_gesture("shake"):
-        display.show(‘arrgg’)
+        display.scroll("arrgg")
         count = count + 2
