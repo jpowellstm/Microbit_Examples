@@ -15,7 +15,8 @@ while True:
     if incoming == 'hello':
         sleep(500)
         radio.send('world')
-    display.scroll(incoming)
+    if incoming is not None:   
+        display.scroll(incoming)
     
         
 # Example 2 - Communication with channel and power settings
