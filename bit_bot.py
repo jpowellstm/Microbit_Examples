@@ -39,3 +39,18 @@ def rgt_bck_speed(speed):
   pin1.write_analog(1024-speed)
   pin12.write_digital(1)
   
+def forward(speed):
+  # drive forward
+  rgt_fwd_speed(speed)
+  lft_fwd_speed(speed)
+ 
+def backward(speed):
+  # drive forward
+  rgt_bck_speed(speed)
+  lft_bck_speed(speed)
+
+  
+ 
+  
+ 
+  
