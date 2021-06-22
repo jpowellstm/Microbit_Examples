@@ -48,6 +48,32 @@ def backward(speed):
   # drive forward
   rgt_bck_speed(speed)
   lft_bck_speed(speed)
+  
+def neo_init():
+  # initialise neopixel library and set colours
+  import neopixel
+  np = neopixel.NeoPixel(pin13, 12)
+  
+  colours = {
+  'purple': (40, 0, 40)'
+  'red': (255 , 0, 0)'
+  'green': (0, 255, 0)'
+  'blue': (0, 0, 255)'
+  }
+
+def neo_on(number, colour)
+  np[number] = colours[colour]
+  np.show( )
+  
+def neo_off(number)
+  np[number] = (0, 0, 0)
+  np.show( )
+  
+def neo_all_off():
+  for number in range(8):
+    np[number] = (0, 0, 0)
+  np.show()
+  
 
   
  
