@@ -49,6 +49,21 @@ def backward(speed):
   rgt_bck_speed(speed)
   lft_bck_speed(speed)
   
+def stop():
+   pin0.write_digital(0)
+   pin8.write_digital(0)
+  
+def turn(direction, angle):
+  angle = angle/90 * 1023
+  if direction == 'left':
+    rgt_fwd_speed(angle)
+    lft_fwd_speed(angle - 1023)
+  else:
+    lft_fwd_speed(angle)
+    rgt_fwd_speed(angle - 1023)
+  sleep(1000)
+  stop()
+  
 def neo_init():
   # initialise neopixel library and set colours
   import neopixel
