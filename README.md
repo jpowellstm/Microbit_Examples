@@ -6,4 +6,4 @@ Examples of code for the BBC microbit written in micropython. These were used fo
 ## References
 
 Bit:bot
-(Multi Wing Span)[http://multiwingspan.co.uk/micro.php?page=botmove]
+[Multi Wing Span](http://multiwingspan.co.uk/micro.php?page=botmove)
