@@ -65,8 +65,8 @@ def turn(direction, angle):
   stop()
   
 def follow_line():
-   lft = pin11.read_digital()
-   rgt = pin5.read_digital()
+   lft = pin16.read_digital()
+   rgt = pin14.read_digital()
    if lft==0 and rgt==1:
        turn('right', 45)
    elif lft==1 and rgt==0:
@@ -99,6 +99,24 @@ def neo_all_off():
   for number in range(8):
     np[number] = (0, 0, 0)
   np.show()
+  
+def ultra_init():
+  from machine import time_pulse_us
+  global trig
+  global echo
+  trig = pin15
+  echo = pin1
+  trig.write_digital(0)
+  echo.read_digital()
+  
+  
+def get_distance():
+    trig.write_digital(1)
+    trig.read_digital(0)
+    micros = time_pulse_us(echo, 1)
+    t_echo = micros/1000000
+    dist_cm = (t_echo / 2) *34300
+    sleep(100)
   
 
   
