@@ -64,6 +64,17 @@ def turn(direction, angle):
   sleep(1000)
   stop()
   
+def follow_line():
+   lft = pin11.read_digital()
+   rgt = pin5.read_digital()
+   if lft==0 and rgt==1:
+       turn('right', 45)
+   elif lft==1 and rgt==0:
+       turn('left', 45)
+   elif rgt==0 and lft==0:
+       forward(400)
+   sleep(20)
+  
 def neo_init():
   # initialise neopixel library and set colours
   import neopixel
