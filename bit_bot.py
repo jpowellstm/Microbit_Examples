@@ -90,7 +90,7 @@ def neo_init():
   import neopixel
   global np
   global colours
-  np = neopixel.NeoPixel(pin13, 12)
+  np = neopixel.NeoPixel(pin13, 8)
   
   colours = {
   'purple': (40, 0, 40)'
