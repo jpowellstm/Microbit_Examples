@@ -93,10 +93,10 @@ def neo_init():
   np = neopixel.NeoPixel(pin13, 8)
   
   colours = {
-  'purple': (40, 0, 40)',
-  'red': (255 , 0, 0)',
-  'green': (0, 255, 0)',
-  'blue': (0, 0, 255)',
+  'purple': (40, 0, 40),
+  'red': (255 , 0, 0),
+  'green': (0, 255, 0),
+  'blue': (0, 0, 255),
   }
 
 def neo_on(number, colour)
