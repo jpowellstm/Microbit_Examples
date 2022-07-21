@@ -31,12 +31,12 @@ def rgt_fwd_speed(speed):
 
 def lft_bck_speed(speed):
   #Move left motor backward at a speed between 0 and 1024 
-  pin0.write_analog(1024-speed)
+  pin0.write_analog(speed)
   pin8.write_digital(1)  
 
 def rgt_bck_speed(speed):
   #Move right motor backward at a speed between 0 and 1024 
-  pin1.write_analog(1024-speed)
+  pin1.write_analog(speed)
   pin12.write_digital(1)
   
 def forward(speed):
@@ -45,28 +45,38 @@ def forward(speed):
   lft_fwd_speed(speed)
  
 def backward(speed):
-  # drive forward
+  # drive backward
   rgt_bck_speed(speed)
   lft_bck_speed(speed)
   
 def stop():
    pin0.write_digital(0)
    pin8.write_digital(0)
+   pin1.write_digital(0)
+   pin12.write_digital(0)
   
 def turn(direction, angle):
-  angle = angle/90 * 1023
+  # Direction given as 'left' or 'right'
+  # Angle between 0 and 90 degrees
+  
+  angle = round(angle/90 * 1023)
+  
   if direction == 'left':
     rgt_fwd_speed(angle)
-    lft_fwd_speed(angle - 1023)
+    lft_bck_speed(angle)
   else:
     lft_fwd_speed(angle)
-    rgt_fwd_speed(angle - 1023)
-  sleep(1000)
+    rgt_bck_speed(angle)
+  
+  sleep(500) # this might need tweaking to get the right angle
   stop()
   
 def follow_line():
+  # Follow a black line on a white background
+  
    lft = pin16.read_digital()
    rgt = pin14.read_digital()
+  
    if lft==0 and rgt==1:
        turn('right', 45)
    elif lft==1 and rgt==0:
