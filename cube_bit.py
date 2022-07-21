@@ -6,10 +6,10 @@ def neo_init(size):
   np = neopixel.NeoPixel(pin13, size**3)
   
   colours = {
-  'purple': (40, 0, 40)',
-  'red': (255 , 0, 0)',
-  'green': (0, 255, 0)',
-  'blue': (0, 0, 255)',
+  'purple': (40, 0, 40),
+  'red': (255 , 0, 0),
+  'green': (0, 255, 0),
+  'blue': (0, 0, 255),
   }
   
 def map(x,y,z, size):
