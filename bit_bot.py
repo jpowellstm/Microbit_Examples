@@ -84,10 +84,12 @@ def follow_line():
    elif rgt==1 and lft==1:
        forward(400)
    sleep(20)
-  
+
 def neo_init():
-  # initialise neopixel library and set colours
+# initialise neopixel library and set colours
   import neopixel
+  global np
+  global colours
   np = neopixel.NeoPixel(pin13, 12)
   
   colours = {
@@ -127,6 +129,7 @@ def get_distance():
     t_echo = micros/1000000
     dist_cm = (t_echo / 2) *34300
     sleep(100)
+    return dist_cm
   
 
   
