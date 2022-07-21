@@ -99,11 +99,11 @@ def neo_init():
   'blue': (0, 0, 255),
   }
 
-def neo_on(number, colour)
+def neo_on(number, colour):
   np[number] = colours[colour]
   np.show( )
   
-def neo_off(number)
+def neo_off(number):
   np[number] = (0, 0, 0)
   np.show( )
   
