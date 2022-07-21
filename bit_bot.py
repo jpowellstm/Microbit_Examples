@@ -81,7 +81,7 @@ def follow_line():
        turn('right', 45)
    elif lft==1 and rgt==0:
        turn('left', 45)
-   elif rgt==0 and lft==0:
+   elif rgt==1 and lft==1:
        forward(400)
    sleep(20)
   
