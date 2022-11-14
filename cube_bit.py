@@ -1,9 +1,11 @@
+from microbit import *
+import neopixel
+
 def neo_init(size):
 # initialise neopixel library and set colours
-  import neopixel
   global np
   global colours
-  np = neopixel.NeoPixel(pin13, size**3)
+  np = neopixel.NeoPixel(pin0, size**3)
   
   colours = {
   'purple': (40, 0, 40),
@@ -30,6 +32,10 @@ def map(x,y,z, size):
                     q = ((size - 1 - x) * size) + y
         return (z * size * size) + q
       
-def setxyz(x,y,z,colour):
-        neo_num = map(x,y,z, size)        
+def setxyz(x, y, z, colour, size):
+        neo_num = map(x, y, z, size)        
         np[neo_num] = colours[colour]
+      
+neo_init(3)
+setxyz(1,1,1,'red', 3)
+np.show()
