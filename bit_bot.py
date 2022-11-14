@@ -119,12 +119,15 @@ def ultra_init():
   trig = pin15
   echo = pin1
   trig.write_digital(0)
-  echo.read_digital()
-  
   
 def get_distance():
     trig.write_digital(1)
-    trig.read_digital(0)
+    sleep_us(10)
+    trig.write_digital(0)
+    
+    while trig.read_digital() == 0:
+      pass
+    
     micros = time_pulse_us(echo, 1)
     t_echo = micros/1000000
     dist_cm = (t_echo / 2) *34300
