@@ -115,9 +115,7 @@ def neo_all_off():
 from machine import time_pulse_us
 def ultra_init():
   global trig
-  global echo
   trig = pin15
-  echo = pin15
   trig.write_digital(0)
   
 def get_distance():
@@ -128,7 +126,7 @@ def get_distance():
     while trig.read_digital() == 0:
       pass
     
-    micros = time_pulse_us(echo, 1)
+    micros = time_pulse_us(trig, 1)
     t_echo = micros/1000000
     dist_cm = (t_echo / 2) *34300
     sleep(100)
