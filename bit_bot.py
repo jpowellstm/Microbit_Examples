@@ -112,12 +112,12 @@ def neo_all_off():
     np[number] = (0, 0, 0)
   np.show()
   
+from machine import time_pulse_us
 def ultra_init():
-  from machine import time_pulse_us
   global trig
   global echo
   trig = pin15
-  echo = pin1
+  echo = pin15
   trig.write_digital(0)
   
 def get_distance():
