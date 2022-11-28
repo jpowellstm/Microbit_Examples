@@ -88,7 +88,9 @@ def get_distance():
     return dist_cm
   
  # The main run loop follows
- while True:
+
+ultra_init()
+while True:
   forward(512)
   if get_distance() < 50:
     stop()
