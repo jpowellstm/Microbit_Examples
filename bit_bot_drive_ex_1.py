@@ -75,7 +75,7 @@ def ultra_init():
   
 def get_distance():
     trig.write_digital(1)
-    sleep_us(10)
+    sleep(10)
     trig.write_digital(0)
     
     while trig.read_digital() == 0:
