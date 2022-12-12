@@ -39,7 +39,7 @@ def turn(direction, angle):
     lft_fwd_speed(angle)
     rgt_bck_speed(angle)
   
-  sleep(500) # this might need tweaking to get the right angle
+  sleep(50) # this might need tweaking to get the right angle
   stop()
 
 def forward(speed):
@@ -53,12 +53,14 @@ def follow_line():
    lft = pin16.read_digital()
    rgt = pin14.read_digital()
   
-   if lft==0 and rgt==1:
-       turn('right', 45)
-   elif lft==1 and rgt==0:
-       turn('left', 45)
-   elif rgt==1 and lft==1:
-       forward(400)
+   if lft==1 and rgt==1:
+       turn('left', 3)
+   elif lft==0 and rgt==0:
+       turn('right', 3)
+   else:
+       forward(600)
+       sleep(50)
+       stop()
    sleep(20)
   
 while True:
