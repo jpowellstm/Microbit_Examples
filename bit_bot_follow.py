@@ -60,3 +60,6 @@ def follow_line():
    elif rgt==1 and lft==1:
        forward(400)
    sleep(20)
+  
+while True:
+  follow_line()
