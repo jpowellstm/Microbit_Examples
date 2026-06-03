@@ -1,6 +1,7 @@
 """
 This is a very basic maze navigator for a bit bot using ultrasound detection.
 """
+
 from microbit import *
 from machine import time_pulse_us
   
@@ -79,7 +80,10 @@ def get_distance():
     sleep(100)
     return dist_cm
   
- # The main run loop follows
+######################################################################################################  
+# This is part of the programme that makes the robot move. Try changing some of the numbers to get it 
+# different things
+######################################################################################################
 
 ultra_init()
 while True:
