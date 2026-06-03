@@ -2,6 +2,10 @@
 
 Examples of code for the BBC microbit written in micropython. 
 
+## Basic examples
+
+hello_world.py - scrolling messages across the screen
+
 ## Bit::bot examples
 
 bit_bot_basic.py - basic functionality to drive the robot forward, turn and stop.  
@@ -14,8 +18,8 @@ bit_bot_maze.py - basic functionality for navigating throught a maze.
 
 Using the inbuilt radio to communicate between microbits.
 
-comm_basic.py - basic set up for messages
-comm_channel.py - including power and channel settings
+comm_basic.py - basic set up for messages  
+comm_channel.py - including power and channel settings  
 
 
 
