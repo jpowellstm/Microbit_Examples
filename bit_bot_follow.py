@@ -1,3 +1,8 @@
+""" Included code for th robot to follow a black line on white paper. It is very basic and will need a lot
+of work to function effectivly.
+
+"""
+
 from microbit import *
 
 def lft_fwd_speed(speed):
