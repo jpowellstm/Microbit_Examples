@@ -13,22 +13,22 @@ from microbit import *
 from machine import time_pulse_us
   
 def lft_fwd_speed(speed):
-  #Move left motor forward at a speed between 0 and 1024
+  # Move left motor forward at a speed between 0 and 1024
   pin0.write_analog(speed)
   pin8.write_digital(0)
   
 def rgt_fwd_speed(speed):
-  #Move right motor forward at a speed between 0 and 1024
+  # Move right motor forward at a speed between 0 and 1024
   pin1.write_analog(speed)
   pin12.write_digital(0)
 
 def lft_bck_speed(speed):
-  #Move left motor backward at a speed between 0 and 1024 
+  # Move left motor backward at a speed between 0 and 1024 
   pin0.write_analog(speed)
   pin8.write_digital(1)  
 
 def rgt_bck_speed(speed):
-  #Move right motor backward at a speed between 0 and 1024 
+  # Move right motor backward at a speed between 0 and 1024 
   pin1.write_analog(speed)
   pin12.write_digital(1)
   
@@ -43,6 +43,7 @@ def backward(speed):
   lft_bck_speed(speed)
   
 def stop():
+   # Stop both motors
    pin0.write_digital(0)
    pin8.write_digital(0)
    pin1.write_digital(0)
@@ -69,11 +70,13 @@ def turn(direction, angle):
   stop()
   
 def ultra_init():
+   # Setup the ultrsound snesor
   global trig
   trig = pin15
   trig.write_digital(0)
   
 def get_distance():
+   # Return the distance and object is away from the front of the robot in centimeters
     trig.write_digital(1)
     sleep(10)
     trig.write_digital(0)
