@@ -68,5 +68,10 @@ def follow_line():
        stop()
    sleep(20)
   
+######################################################################################################  
+# This is part of the programme that makes the robot move. Try changing some of the numbers to get it 
+# different things
+######################################################################################################
+
 while True:
   follow_line()
