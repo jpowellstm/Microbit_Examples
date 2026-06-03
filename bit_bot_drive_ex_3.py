@@ -1,63 +1,36 @@
+"""
+This file adds functionality to use the neopixel LEDs at the front of the robot.
+"""
 
-def lft_fwd():
-  #Move left motor forward full speed
-  pin0.write_digital(1)
-  pin8.write_digital(0)
-  
-def lft_bck():
-  #Move left motor reverse full speed
-  pin0.write_digital(0)
-  pin8.write_digital(1)
-    
-def rgt_fwd():
-  #Move right motor forward full speed
-  pin1.write_digital(1)
-  pin12.write_digital(0)
-  
-def rgt_bck():
-  #Move right motor reverse full speed
-  pin1.write_digital(0)
-  pin12.write_digital(1)
-  
+from microbit import *
+from machine import time_pulse_us
+
 def lft_fwd_speed(speed):
-  #Move left motor forward at a speed between 0 and 1024
+  # Move left motor forward at a speed between 0 and 1024
   pin0.write_analog(speed)
   pin8.write_digital(0)
   
 def rgt_fwd_speed(speed):
-  #Move right motor forward at a speed between 0 and 1024
+  # Move right motor forward at a speed between 0 and 1024
   pin1.write_analog(speed)
   pin12.write_digital(0)
 
-def lft_bck_speed(speed):
-  #Move left motor backward at a speed between 0 and 1024 
-  pin0.write_analog(speed)
-  pin8.write_digital(1)  
-
-def rgt_bck_speed(speed):
-  #Move right motor backward at a speed between 0 and 1024 
-  pin1.write_analog(speed)
-  pin12.write_digital(1)
-  
 def forward(speed):
   # drive forward
   rgt_fwd_speed(speed)
   lft_fwd_speed(speed)
- 
-def backward(speed):
-  # drive backward
-  rgt_bck_speed(speed)
-  lft_bck_speed(speed)
-  
+
 def stop():
+  # Stop both motors
    pin0.write_digital(0)
    pin8.write_digital(0)
    pin1.write_digital(0)
    pin12.write_digital(0)
-  
+
 def turn(direction, angle):
   # Direction given as 'left' or 'right'
   # Angle between 0 and 90 degrees
+  # The amount of sleep time at the end of the function needs tweaking to get the angle right
   
   angle = round(angle/90 * 1023)
   
@@ -68,25 +41,11 @@ def turn(direction, angle):
     lft_fwd_speed(angle)
     rgt_bck_speed(angle)
   
-  sleep(500) # this might need tweaking to get the right angle
+  sleep(50) # this might need tweaking to get the right angle
   stop()
-  
-def follow_line():
-  # Follow a black line on a white background
-  
-   lft = pin16.read_digital()
-   rgt = pin14.read_digital()
-  
-   if lft==0 and rgt==1:
-       turn('right', 45)
-   elif lft==1 and rgt==0:
-       turn('left', 45)
-   elif rgt==1 and lft==1:
-       forward(400)
-   sleep(20)
 
 def neo_init():
-# initialise neopixel library and set colours
+# initialise neopixel library and set colours, if you want to add more colours define them below
   import neopixel
   global np
   global colours
@@ -100,19 +59,21 @@ def neo_init():
   }
 
 def neo_on(number, colour):
+  # takes the number of the neopixel to turn on and the colour as inputs
   np[number] = colours[colour]
   np.show( )
   
 def neo_off(number):
+  # Takes the number of the neopixel to turn off 
   np[number] = (0, 0, 0)
   np.show( )
   
 def neo_all_off():
+  # Turns off all neopixels
   for number in range(8):
     np[number] = (0, 0, 0)
   np.show()
   
-from machine import time_pulse_us
 def ultra_init():
   global trig
   trig = pin15
@@ -131,9 +92,17 @@ def get_distance():
     dist_cm = (t_echo / 2) *34300
     sleep(100)
     return dist_cm
-  
 
-  
+######################################################################################################  
+# This is part of the programme that makes the robot move. Try changing some of the numbers to get it 
+# different things
+######################################################################################################
+
+neo_init()
+neo_on(1, 'red')
+sleep(2000)
+neo_all_off()
+
  
   
  
