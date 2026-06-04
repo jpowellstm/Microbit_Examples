@@ -1,4 +1,5 @@
-# Examples of event loops
+"""Examples of event loops
+"""
 
 # Example 1 - a very basic loop that displays an image for 10 seconds then changes
 
