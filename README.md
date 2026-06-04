@@ -5,6 +5,10 @@ Examples of code for the BBC microbit written in micropython.
 ## Basic examples
 
 hello_world.py - scrolling messages across the screen
+event_loops.py - some basic examples for events based on button presses etc
+gestures.py - basic example of using gestures like shake
+images.py - showing standard images, creating custom images and animating images
+morethings.py - some other small basics in python on the microbit
 
 ## Bit::bot examples
 
@@ -20,6 +24,12 @@ Using the inbuilt radio to communicate between microbits.
 
 comm_basic.py - basic set up for messages  
 comm_channel.py - including power and channel settings  
+
+## Other examples
+
+cube_bit.py - basic functions for a neopixel cube
+magic8.py - code for a magic 8 ball random message generator
+tamagochi.py - starter code for creating a tamagochi
 
 
 
