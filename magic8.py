@@ -1,3 +1,7 @@
+"""
+This programme displays a random message every time the microbit is shaken
+"""
+
 from microbit import *
 import random
 
