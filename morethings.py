@@ -1,4 +1,10 @@
-# random numbers
+"""
+Some basic examples of how to do things in python on the microbit
+1. random numbers
+2. casting
+"""
+
+# 1. random numbers
 
 import random
 
@@ -6,7 +12,7 @@ import random
 number = random.randint(5,50)
 
 
-# casting
+# 2. casting
 
 # convert and integer to a string
 str(5)
