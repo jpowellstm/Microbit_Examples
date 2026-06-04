@@ -1,3 +1,7 @@
+"""
+Examples code to get a neopixel cube working
+"""
+
 from microbit import *
 import neopixel
 
