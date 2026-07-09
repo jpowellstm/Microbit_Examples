@@ -11,9 +11,7 @@ while True:
         radio.send('hello') 
    
     incoming = radio.receive()
-    if incoming == 'hello':
-        sleep(500)
-        radio.send('world')
+ 
     if incoming is not None:   
         display.scroll(incoming)
     
